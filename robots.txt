@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /web/
+Disallow: /template/
+
+Sitemap: http://www.chittorgarhtaxiservices.com/sitemap.xml

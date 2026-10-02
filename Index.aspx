@@ -1,752 +1,425 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="Index" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Master.master" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="Index" %>
+<%@ Register Src="~/Controls/BlogList.ascx" TagPrefix="uc" TagName="BlogList" %>
 
-<!DOCTYPE html>
+<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
+    <link rel="preload" as="image" href="images/banner11.jpg" />
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Chittorgarh Taxi Services | Taxi in Chittorgarh | Taxi services in Chittorgarh | Taxi Hire Chittorgarh</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <meta name="keywords" content="Chittorgarh taxi services, Chittorgarh car rental, chittorgarh taxi, chittorgarh book taxi, rental, taxi, car service chittorgarh" />
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
+<asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
-    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all" />
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link href="css/fontawesome-all.css" rel="stylesheet" />
-    <link href="//fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
-        <!--/banner-w3layouts-sec-->
-        <div class="banner-w3layouts">
-            <header>
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="Index.aspx">Chittorgarh Taxi</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon">
-                            <i class="fas fa-bars"></i>
-                        </span>
-
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="Index.aspx">Home
-								<span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ml-xl-2">
-                                <a class="nav-link" href="javacript:void(0);" onclick="scrolltoPosition('about')">About</a>
-                            </li>
-                            <li class="nav-item ml-xl-2">
-                                <a class="nav-link" href="javacript:void(0);" onclick="scrolltoPosition('testimonials')">Testimonials</a>
-                            </li>
-                            <li class="nav-item ml-xl-2">
-                                <a class="nav-link" href="javacript:void(0);" onclick="scrolltoPosition('service')">Services</a>
-                            </li>
-                            <li class="nav-item ml-xl-2">
-                                <a class="nav-link" href="Best-Taxi-Service-Chittorgarh.aspx">Best Taxi Service</a>
-                            </li>
-                            <li class="nav-item ml-xl-2">
-                                <a class="nav-link" href="Contact.aspx">Contact</a>
-                            </li>
-                        </ul>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <span class="eyebrow"><i class="fas fa-map-marker-alt"></i>Chittorgarh, Rajasthan</span>
+                    <h1>Reliable <span>Taxi Service in Chittorgarh</span> &ndash; Book a Cab 24 x 7</h1>
+                    <p class="hero-lead">
+                        Clean cars, courteous local drivers and honest per-km fares for Chittorgarh Fort sightseeing,
+                        Udaipur airport transfers, Sanwariya Seth darshan and outstation trips across Rajasthan.
+                    </p>
+                    <ul class="hero-points">
+                        <li><i class="fas fa-check-circle"></i>Fares from &#8377;9/km</li>
+                        <li><i class="fas fa-check-circle"></i>No hidden charges</li>
+                        <li><i class="fas fa-check-circle"></i>Airport &amp; railway pickup</li>
+                        <li><i class="fas fa-check-circle"></i>One-way &amp; round trips</li>
+                    </ul>
+                    <div class="hero-actions">
+                        <a class="btn-brand" href="tel:<%: Seo.PhoneLink %>"><i class="fas fa-phone-alt"></i>Call <%: Seo.Phone %></a>
+                        <a class="btn-outline-light-ink" href="<%: Seo.WhatsAppLink("Hi, I want to book a taxi from Chittorgarh.") %>" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>Book on WhatsApp</a>
                     </div>
-                </nav>
-            </header>
-            <!--banner-w3layouts-->
-            <div class="banner-w3layouts-info">
-                <!--/search_form -->
-                <div id="search_form" class="search_top text-center">
-                    <h3>Book Your Taxi Now</h3>
-                    <p>We offers best car hire rates with no compromised in facility.</p>
-                    <div class="ban-form bookTaxi">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-3 banf">
-                                    <asp:TextBox ID="txtName" runat="server" class="form-control" placeholder="Name"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ValidationGroup="validate" ID="reqName" runat="server" ControlToValidate="txtName" Display="Dynamic" ForeColor="Red" ErrorMessage="Please enter Name."></asp:RequiredFieldValidator>
-                                </div>
-                                <div class="col-md-3 banf">
-                                    <asp:TextBox ID="txtMobile" runat="server" class="form-control" placeholder="Mobile No."></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvtxtContactNumber" runat="server" ControlToValidate="txtMobile"
-                                        ValidationGroup="validate" Display="Dynamic" ForeColor="Red" ErrorMessage="Please Enter Contact Number." SetFocusOnError="true"></asp:RequiredFieldValidator>
-                                </div>
-                                <div class="col-md-3 banf">
-                                    <asp:TextBox ID="txtEmailID" runat="server" class="form-control" placeholder="Email ID"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ValidationGroup="validate" ID="reqEmail" runat="server" ControlToValidate="txtEmailID" Display="Dynamic" ForeColor="Red" ErrorMessage="Please enter EmailID."></asp:RequiredFieldValidator>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmailID" ValidationGroup="validate"
-                                        ForeColor="Red" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
-                                        Display="Dynamic" ErrorMessage="Invalid email address" />
-                                </div>
-                                <div class="col-md-3 banf">
-                                    <asp:Button ID="btnSubmit" runat="server" Text="Book Now" CssClass="btn btn-warning" OnClick="btnSubmit_Click" />
-                                </div>
-                            </div>
-                        </div>
+                    <div class="hero-rating">
+                        <span class="stars" aria-hidden="true"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                        <span>Trusted by <strong class="text-white">2,800+</strong> happy travellers since 2018</span>
                     </div>
                 </div>
-                <!--//search_form -->
-            </div>
-            <!--//banner-w3layouts-->
-        </div>
-        <!--//banner-w3layouts-sec-->
-        <section class="banner-w3layouts-bottom py-lg-5 py-3">
-            <div class="container py-lg-4 py-3">
-                <div class="inner-sec-agileits-w3ls">
-                    <div class="owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="gd-box-info text-center p-lg-4 p-4 rounded">
-                                <div class="gd-box-con">
-                                    <i class="fas fa-taxi"></i>
-                                    <h4>Clean Car</h4>
-                                    <p>Drive</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="gd-box-info text-center p-lg-4 p-4 rounded">
-                                <div class="gd-box-con">
-                                    <i class="far fa-building"></i>
-                                    <h4>Courteous</h4>
-                                    <p>Drive</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="gd-box-info text-center p-lg-4 p-4 rounded">
-                                <div class="gd-box-con">
-                                    <i class="fas fa-clock"></i>
-                                    <h4>On Time</h4>
-                                    <p>Services</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="gd-box-info text-center p-lg-4 p-4 rounded">
-                                <div class="gd-box-con">
-                                    <i class="far fa-building"></i>
-                                    <h4>Affordable</h4>
-                                    <p>Prices</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="gd-box-info text-center p-lg-4 p-4 rounded">
-                                <div class="gd-box-con">
-                                    <i class="far fa-building"></i>
-                                    <h4>Fast & Safe</h4>
-                                    <p>Drive</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-5">
+                    <div class="booking-card" id="book">
+                        <h2>Book Your Taxi</h2>
+                        <p class="booking-sub">Share your details and we will call you back within minutes.</p>
 
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="txtName" Text="Full name" />
+                            <asp:TextBox ID="txtName" runat="server" CssClass="form-control" placeholder="e.g. Rahul Sharma" autocomplete="name" MaxLength="80" />
+                            <asp:RequiredFieldValidator ID="reqName" runat="server" ControlToValidate="txtName" ValidationGroup="validate"
+                                Display="Dynamic" CssClass="field-error" ErrorMessage="Please enter your name." SetFocusOnError="true" />
+                        </div>
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="txtMobile" Text="Mobile number" />
+                            <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control" TextMode="Phone" placeholder="10-digit mobile number" autocomplete="tel" MaxLength="15" />
+                            <asp:RequiredFieldValidator ID="rfvtxtContactNumber" runat="server" ControlToValidate="txtMobile" ValidationGroup="validate"
+                                Display="Dynamic" CssClass="field-error" ErrorMessage="Please enter your mobile number." SetFocusOnError="true" />
+                            <asp:RegularExpressionValidator ID="revMobile" runat="server" ControlToValidate="txtMobile" ValidationGroup="validate"
+                                ValidationExpression="^(\+91[\-\s]?|0)?[6-9]\d{9}$" Display="Dynamic" CssClass="field-error"
+                                ErrorMessage="Please enter a valid 10-digit mobile number." />
+                        </div>
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="txtEmailID" Text="Email address" />
+                            <asp:TextBox ID="txtEmailID" runat="server" CssClass="form-control" TextMode="Email" placeholder="you@example.com" autocomplete="email" MaxLength="120" />
+                            <asp:RequiredFieldValidator ID="reqEmail" runat="server" ControlToValidate="txtEmailID" ValidationGroup="validate"
+                                Display="Dynamic" CssClass="field-error" ErrorMessage="Please enter your email address." />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmailID" ValidationGroup="validate"
+                                ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                Display="Dynamic" CssClass="field-error" ErrorMessage="Please enter a valid email address." />
+                        </div>
+                        <asp:Button ID="btnSubmit" runat="server" Text="Book Now" CssClass="btn-brand btn-block-full" ValidationGroup="validate" OnClick="btnSubmit_Click" />
+                        <p class="booking-note"><i class="fas fa-shield-alt"></i> Your details are safe with us. No spam, ever.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- about -->
-        <section class="about">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6 p-0">
-                        <img src="images/car.jpg" alt="Realtie" class="img-fluid" />
-                    </div>
-                    <div class="col-lg-6 about-info">
-                        <h3 class="tittle text-left mb-lg-5 mb-3">About Us</h3>
-                        <p class="my-xl-4 my-lg-3 my-md-4 my-3">
-                            Chittorgarh Taxi Services is your one-stop shop for renting or hiring 
-                             taxi cabs in Chittorgarh. We serve trips for inter-city, airport
-                             transfers and even local daily tours. We partner with corporates and 
-                            travel companies for all road travel needs.
-                        </p>
-
-                        <a href="#" class="btn btn-sm animated-button gibson-three">Read More</a>
-
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        <!-- /about -->
-        <!--/banner-w3layouts-bottom -->
-        <section class="banner-w3layouts-bottom py-lg-5 py-3">
-            <div class="container py-lg-4 py-3">
-                <h3 class="tittle ser text-center mx-auto mb-lg-5 mb-3 ">Provide instant, seamless customer support 24/7 from anywhere you are!</h3>
-                <div class="inner-sec-agileits-w3ls">
-                    <div class="row pt-lg-3">
-                        <div class="serve-grid col-md-4 col-sm-6 mt-lg-5 text-center">
-                            <i class="fab fa-react"></i>
-                            <h4 class="my-lg-4 my-3">Competitive Prices</h4>
-                            <p>
-                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
-							layout.
-                            </p>
-                        </div>
-                        <div class="serve-grid col-md-4 col-sm-6 mt-lg-5 text-center">
-                            <i class="fab fa-codepen"></i>
-                            <h4 class="my-lg-4 my-3">Fast & Safe</h4>
-                            <p>
-                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
-							layout.
-                            </p>
-                        </div>
-                        <div class="serve-grid col-md-4 col-sm-6 mt-lg-5 text-center">
-                            <i class="far fa-edit"></i>
-                            <h4 class="my-lg-4 my-3">Trained And Skilled Drivers</h4>
-                            <p>
-                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
-							layout.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--//banner-w3layouts-bottom -->
-        <!--/process-->
-        <section class="service banner-w3layouts-bottom py-lg-5 py-3" id="plats">
-            <div class="container py-lg-4 py-3">
-                <h3 class="tittle text-center">Available Cars/Taxis For Rent</h3>
-                <div class="row inner-sec-agileits-w3ls">
-                    <div class="tabs">
-                        <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                <div class="menu-grids mt-4">
-
-                                    <div class="row t-in">
-                                        <div class="col-lg-4 text-info-sec">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <img src="images/innova.jpg" alt="Realtie" class="img-fluid" />
-                                                    <h5 class="card-title mt-3">Innova
-														<span>14-15 ₹/Km</span>
-                                                    </h5>
-                                                    <p class="card-text">
-                                                        <i class="fas fa-user"></i>&nbsp;Capacity : 7 Person
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 text-info-sec">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <img src="images/swift.jpg" alt="Realtie" class="img-fluid" />
-                                                    <h5 class="card-title mt-3">Swift
-														<span>9-10 ₹/Km</span>
-                                                    </h5>
-                                                    <p class="card-text">
-                                                        <i class="fas fa-user"></i>&nbsp;Capacity : 4 Person
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 text-info-sec">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <img src="images/tavera.jpg" alt="Realtie" class="img-fluid" />
-                                                    <h5 class="card-title mt-3">Tavera
-														<span>12-13 ₹/Km</span>
-                                                    </h5>
-                                                    <p class="card-text">
-                                                        <i class="fas fa-user"></i>&nbsp;Capacity : 9 Person
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row t-in mt-4">
-                                        <div class="col-lg-4 text-info-sec">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <img src="images/etios.jpg" alt="Realtie" class="img-fluid" />
-                                                    <h5 class="card-title mt-3">Etios
-														<span>11-12₹/Km</span>
-                                                    </h5>
-                                                    <p class="card-text">
-                                                        <i class="fas fa-user"></i>&nbsp;Capacity : 4 Person
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 text-info-sec">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <img src="images/indigo.jpg" alt="Realtie" class="img-fluid" />
-                                                    <h5 class="card-title mt-3">Indigo
-														<span>9-10 ₹/Km</span>
-                                                    </h5>
-                                                    <p class="card-text">
-                                                        <i class="fas fa-user"></i>&nbsp;Capacity : 4 Person
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 text-info-sec">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <img src="images/ertiga.jpg" alt="Realtie" class="img-fluid" />
-                                                    <h5 class="card-title mt-3">Ertiga
-														<span>11-12 ₹/Km</span>
-                                                    </h5>
-                                                    <p class="card-text">
-                                                        <i class="fas fa-user"></i>&nbsp;Capacity : 6 Person
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row t-in mt-4">
-                                        <div class="col-lg-4 text-info-sec">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <img src="images/Cruiser.jpg" alt="Realtie" class="img-fluid" />
-                                                    <h5 class="card-title mt-3">Cruiser
-														<span>15-16 ₹/Km</span>
-                                                    </h5>
-                                                    <p class="card-text">
-                                                        <i class="fas fa-user"></i>&nbsp;Capacity : 12 Person
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--//preocess-->
-        <!-- stats -->
-        <section class="stats_test pb-5 container-fluid">
-            <div class="row inner_stat_wthree_agileits">
-                <div class="col-sm-3 col-6 py-5 stats_info counter_grid">
-                    <i class="fas fa-taxi"></i>
-                    <p class="counter">35</p>
-                    <h4>Vehicles</h4>
-                </div>
-                <div class="col-sm-3 col-6 py-5 stats_info counter_grid1">
-                    <i class="fas fa-users"></i>
-                    <p class="counter">280</p>
-                    <h4>Airport Pickup And Drop</h4>
-                </div>
-                <div class="col-sm-3 col-6 py-5 stats_info counter_grid2">
-                    <i class="far fa-edit"></i>
-                    <p class="counter">7</p>
-                    <h4>Years of Service</h4>
-                </div>
-                <div class="col-sm-3 col-6 py-5 stats_info counter_grid3">
-                    <i class="far fa-smile"></i>
-                    <p class="counter">2800</p>
-                    <h4>Happy Clients</h4>
-                </div>
-            </div>
-        </section>
-        <!-- //stats -->
-        <!--/features-->
-        <section class="banner-w3layouts-bottom py-lg-5 py-3">
-            <div class="container py-lg-4 py-3">
-                <h3 class="tittle text-center">Partners</h3>
-
-                <div class="row justify-content-center inner-sec-agileits-w3ls mt-lg-5 mt-3">
-                    <div class="col-sm-4">
-                        <div class="team-grid text-center">
-                            <div class="team-img">
-                                <img class="img-fluid rounded" src="images/team4.jpg" alt="">
-                            </div>
-                            <div class="team-info">
-                                <h4>Mahaveer Vyas</h4>
-                                <span>Accounts Manager</span>
-                                <ul class="d-flex justify-content-center py-3 social-icons">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-facebook-f"></i>
-                                        </a>
-                                    </li>
-                                    <li class="mx-3">
-                                        <a href="#">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-google-plus-g"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="team-grid text-center">
-                            <div class="team-img">
-                                <img class="img-fluid rounded" src="images/team1.jpg" alt="">
-                            </div>
-                            <div class="team-info">
-                                <h4>Himanshu</h4>
-                                <span>Marketing Head</span>
-                                <ul class="d-flex justify-content-center py-3 social-icons">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-facebook-f"></i>
-                                        </a>
-                                    </li>
-                                    <li class="mx-3">
-                                        <a href="#">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-google-plus-g"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- //end row -->
-            </div>
-        </section>
-        <!--//features-->
-        <!--/middle-->
-        <section class="middle banner-w3layouts-bottom py-lg-5 py-3">
-            <div class="container py-lg-5 py-3">
-                <h3 class="tittle cen text-left mb-lg-3 mb-2">Over than
-				<strong>2500</strong> Happy Customer</h3>
-                <div class="inner-sec-agileits-w3ls">
-                    <div class="row pt-lg-3">
-                        <div class="serve-grid col-md-6 col-sm-6 mt-lg-5 text-left">
-                            <i class="fas fa-chart-line"></i>
-                            <h4 class="my-lg-4">Best Taxi Services</h4>
-                            <p>
-                                Reliable and genuine service...had nice experience...best service in Chittorgarh.
-                            </p>
-                        </div>
-                        <div class="serve-grid col-md-6 col-sm-6 mt-lg-5 text-left">
-                            <i class="fas fa-male"></i>
-                            <h4 class="my-lg-4">Best Taxi Services</h4>
-                            <p>
-                                Best customer service.. good job. If anyone visit Chittorgarh please must try.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--//middle-->
-        <!-- Testimonials-->
-        <section class="testimonials py-lg-5 py-3 text-center">
-            <div class="container py-lg-5 py-3">
-                <h3 class="tittle">Happy Customers</h3>
-                <div class="inner-sec-agileits-w3ls mt-lg-5  mt-3">
-                    <section class="slider">
-                        <div class="flexslider">
-                            <ul class="slides">
-                                <li>
-                                    <div class="testimonials_grid">
-                                        <div class="testimonials_grid-inn">
-                                            <img src="images/t1.jpg" alt=" " class="img-responsive" />
-                                            <div class="test_social_pos">
-                                                <ul class="social_list1">
-                                                    <li>
-                                                        <a href="#" class="facebook1">
-                                                            <i class="fab fa-facebook-f"></i>
-
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="twitter2">
-                                                            <i class="fab fa-twitter"></i>
-
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dribble3">
-                                                            <i class="fab fa-dribbble"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h3>Deepak J Choudhary
-                                        </h3>
-                                        <label>Jaipur</label>
-                                        <p>
-                                           Best driver . very good service &.luxyry vehicles or wajib daam 🙏 thanks sir ji
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="testimonials_grid">
-                                        <div class="testimonials_grid-inn">
-                                            <img src="images/t2.png" alt=" " class="img-responsive" />
-                                            <div class="test_social_pos">
-                                                <ul class="social_list1">
-                                                    <li>
-                                                        <a href="#" class="facebook1">
-                                                            <i class="fab fa-facebook-f"></i>
-
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="twitter2">
-                                                            <i class="fab fa-twitter"></i>
-
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dribble3">
-                                                            <i class="fab fa-dribbble"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h3>Mukesh Chasta
-                                        </h3>
-                                        <label>Chittorgarh</label>
-                                        <p>
-                                            Reliable and genuine service...had nice experience...best service in Chittorgarh
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="testimonials_grid">
-                                        <div class="testimonials_grid-inn">
-                                            <img src="images/t3.png" alt=" " class="img-responsive" />
-                                            <div class="test_social_pos">
-                                                <ul class="social_list1">
-                                                    <li>
-                                                        <a href="#" class="facebook1">
-                                                            <i class="fab fa-facebook-f"></i>
-
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="twitter2">
-                                                            <i class="fab fa-twitter"></i>
-
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dribble3">
-                                                            <i class="fab fa-dribbble"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h3>Tarun Gawer
-										
-                                        </h3>
-                                        <label>Jaipur</label>
-                                        <p>
-                                            best customer service.. good job. If anyone visit Chittorgarh please must try.
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </section>
-
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Enquiry sent Successfully !</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        
-                        <asp:Literal ID="litMessage" runat="server" Text="we will contact back to you soon."></asp:Literal>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-
             </div>
         </div>
+    </section>
 
-        <!-- //testimonials -->
-        <!--footer-->
-        <footer>
-            <!-- footer -->
-            <div class="footer-cpy p-lg-4 p-md-3 p-3 container-fluid">
-                <div class="row">
-                    <div class="col-lg-7 copyrightbottom text-left">
-                        <h3>
-                            <a class="navbar-brand" href="Index.aspx">Chittorgarh Taxi</a>
-                        </h3>
-                        <p>
-                            © 2018-2025 Chittorgarh Taxi Services. All Rights Reserved | Design by
-						<a href="https://awarepedia.com/">Awarepedia India</a>
-                        </p>
+    <!-- Feature strip -->
+    <section class="feature-strip" aria-label="Why travel with us">
+        <div class="container">
+            <div class="feature-strip-inner">
+                <div class="feature-item"><i class="fas fa-car"></i><h3>Clean Cars</h3><p>Sanitised &amp; well maintained</p></div>
+                <div class="feature-item"><i class="fas fa-user-tie"></i><h3>Courteous Drivers</h3><p>Verified &amp; experienced</p></div>
+                <div class="feature-item"><i class="far fa-clock"></i><h3>Always On Time</h3><p>Punctual pickups</p></div>
+                <div class="feature-item"><i class="fas fa-rupee-sign"></i><h3>Affordable</h3><p>Honest per-km pricing</p></div>
+                <div class="feature-item"><i class="fas fa-headset"></i><h3>24 x 7 Support</h3><p>Call or WhatsApp anytime</p></div>
+            </div>
+        </div>
+    </section>
 
+    <!-- About -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 reveal">
+                    <div class="about-media">
+                        <img src="images/car.jpg" alt="Clean, well-maintained taxi ready for a trip in Chittorgarh" width="900" height="601" loading="lazy" />
+                        <div class="about-badge"><strong><%= Seo.YearsOfService %>+</strong><span>Years of service</span></div>
                     </div>
-                    <div class="col-lg-5 copyrighttop mt-3 text-right">
-                        <ul>
-                            <li class="mx-3">
-                                <a class="facebook" href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                    <span>Facebook</span>
-                                </a>
-                            </li>
-                            <li class="mx-3">
-                                <a class="facebook" href="#">
-                                    <i class="fab fa-twitter"></i>
-                                    <span>Twitter</span>
-                                </a>
-                            </li>
-                             <li>
-                                <a class="facebook" href="#">
-                                    <i class="fab fa-google"></i>
-                                    <span>Google Map</span>
-                                </a>
-                            </li>
-                        </ul>
+                </div>
+                <div class="col-lg-6 pl-lg-5 reveal">
+                    <span class="eyebrow">About Us</span>
+                    <h2 class="section-title">Your Trusted <span>Taxi Partner</span> in Chittorgarh</h2>
+                    <p>
+                        Chittorgarh Taxi Services is your one-stop shop for renting or hiring taxi cabs in Chittorgarh.
+                        Since 2018 we have been serving inter-city trips, airport transfers and local daily tours for families,
+                        tourists, pilgrims and business travellers.
+                    </p>
+                    <p>
+                        We also partner with corporates and travel companies for all their road travel needs. Every trip is handled by a
+                        local driver who knows the city, the fort roads and the highways of Mewar inside out.
+                    </p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check"></i>Chittorgarh Fort sightseeing</li>
+                        <li><i class="fas fa-check"></i>Udaipur airport transfers</li>
+                        <li><i class="fas fa-check"></i>Railway station pickup</li>
+                        <li><i class="fas fa-check"></i>Outstation &amp; one-way trips</li>
+                        <li><i class="fas fa-check"></i>Temple &amp; pilgrimage tours</li>
+                        <li><i class="fas fa-check"></i>Wedding &amp; corporate hire</li>
+                    </ul>
+                    <a class="btn-dark-ink" href="#services">Explore Our Services <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section bg-soft" id="services">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Our Services</span>
+                <h2 class="section-title">Taxi Services for <span>Every Journey</span></h2>
+                <p class="section-lead">Whether it is a quick city ride or a week-long Rajasthan tour, we have the right car and driver for you.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4 reveal">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="fab fa-fort-awesome"></i></span>
+                        <h3>Local Sightseeing &amp; Fort Tour</h3>
+                        <p>Half-day and full-day taxis covering Chittorgarh Fort, Vijay Stambh, Padmini Palace, Meera Temple and more.</p>
+                        <a class="link-arrow" href="Chittorgarh-Fort-Travel-Guide.aspx">Fort travel guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 reveal">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="fas fa-road"></i></span>
+                        <h3>Outstation Taxi</h3>
+                        <p>Comfortable round trips and one-way drops to Udaipur, Jaipur, Ajmer, Kota, Indore, Ahmedabad and beyond.</p>
+                        <a class="link-arrow" href="Outstation-Taxi-from-Chittorgarh.aspx">Routes &amp; fares <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 reveal">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="fas fa-plane-arrival"></i></span>
+                        <h3>Airport &amp; Railway Transfers</h3>
+                        <p>Timely pickup and drop for Udaipur's Maharana Pratap Airport and Chittorgarh railway station, day or night.</p>
+                        <a class="link-arrow" href="Udaipur-Airport-to-Chittorgarh-Taxi.aspx">Airport transfer guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 reveal">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="fas fa-place-of-worship"></i></span>
+                        <h3>Sanwariya Seth Darshan</h3>
+                        <p>Hassle-free temple trips to Shri Sanwaliya Ji, Matri Kundiya and other sacred sites around Chittorgarh.</p>
+                        <a class="link-arrow" href="Sanwariya-Seth-Temple-Taxi-from-Chittorgarh.aspx">Plan your darshan <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 reveal">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="fas fa-route"></i></span>
+                        <h3>Chittorgarh to Udaipur Taxi</h3>
+                        <p>The most popular route from Chittorgarh. Sedans, SUVs and tempo-style vehicles for groups of every size.</p>
+                        <a class="link-arrow" href="Chittorgarh-to-Udaipur-Taxi.aspx">Udaipur route guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 reveal">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="fas fa-briefcase"></i></span>
+                        <h3>Wedding &amp; Corporate Hire</h3>
+                        <p>Multiple cars for weddings, events, conferences and corporate guests with reliable, uniformed drivers.</p>
+                        <a class="link-arrow" href="Contact.aspx">Request a quote <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!---->
+        </div>
+    </section>
 
-        <!-- /.footer -->
-        <script src="js/jquery-2.2.3.min.js"></script>
-        <!-- carousel -->
-        <script src="js/owl.carousel.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('.owl-carousel').owlCarousel({
-                    loop: true,
-                    margin: 10,
-                    responsiveClass: true,
-                    responsive: {
-                        0: {
-                            items: 1,
-                            nav: true
-                        },
-                        600: {
-                            items: 2,
-                            nav: false
-                        },
-                        900: {
-                            items: 3,
-                            nav: false
-                        },
-                        1000: {
-                            items: 4,
-                            nav: true,
-                            loop: false,
-                            margin: 20
-                        }
-                    }
-                })
-            })
-        </script>
-        <!-- //carousel -->
-        <!-- stats -->
-        <script src="js/jquery.waypoints.min.js"></script>
-        <script src="js/jquery.countup.js"></script>
-        <script>
-            $('.counter').countUp();
-        </script>
-        <!-- //stats -->
-        <!-- flexSlider -->
-        <script defer src="js/jquery.flexslider.js"></script>
-        <script>
-            $(window).load(function () {
-                $('.flexslider').flexslider({
-                    animation: "slide",
-                    start: function (slider) {
-                        $('body').removeClass('loading');
-                    }
-                });
-            });
-        </script>
-        <!-- //flexSlider -->
-        <!-- start-smooth-scrolling -->
-        <script src="js/move-top.js"></script>
-        <script src="js/easing.js"></script>
-        <script>
-            jQuery(document).ready(function ($) {
-                $(".scroll").click(function (event) {
-                    event.preventDefault();
+    <!-- Fleet -->
+    <section class="section" id="fleet">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Our Fleet</span>
+                <h2 class="section-title">Cars &amp; Taxis Available <span>for Rent</span></h2>
+                <p class="section-lead">Choose the right vehicle for your group. All cars are air-conditioned and driven by experienced local drivers.</p>
+            </div>
+            <div class="row justify-content-center">
+                <asp:Repeater ID="rptFleet" runat="server">
+                    <ItemTemplate>
+                        <div class="col-md-6 col-lg-4 mb-4 reveal">
+                            <article class="fleet-card">
+                                <div class="fleet-img">
+                                    <img src="images/<%# Eval("Image") %>" alt="<%# Eval("Name") %> taxi for hire in Chittorgarh" width="640" height="420" loading="lazy" />
+                                    <span class="fleet-tag"><%# Eval("Type") %></span>
+                                </div>
+                                <div class="fleet-body">
+                                    <h3><%# Eval("Name") %></h3>
+                                    <ul class="fleet-specs">
+                                        <li><i class="fas fa-user-friends"></i><%# Eval("Seats") %> passengers</li>
+                                        <li><i class="fas fa-snowflake"></i>AC</li>
+                                        <li><i class="fas fa-route"></i>Local &amp; outstation</li>
+                                    </ul>
+                                    <div class="fleet-foot">
+                                        <div class="fleet-price">&#8377;<%# Eval("Rate") %><small>per km</small></div>
+                                        <a class="btn-brand" href="<%# Seo.WhatsAppLink("Hi, I want to book a " + Eval("Name") + " taxi from Chittorgarh.") %>" target="_blank" rel="noopener">Book <%# Eval("Name") %></a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+            <p class="routes-note text-center">Fares are indicative. Toll tax, parking, state permit and driver night allowance are extra where applicable.</p>
+        </div>
+    </section>
 
-                    $('html,body').animate({
-                        scrollTop: $(this.hash).offset().top
-                    }, 1000);
-                });
-            });
-        </script>
-        <!-- //end-smooth-scrolling -->
-        <!-- dropdown nav -->
-        <script>
-            $(document).ready(function () {
-                $(".dropdown").hover(
-                    function () {
-                        $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-                        $(this).toggleClass('open');
-                    },
-                    function () {
-                        $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-                        $(this).toggleClass('open');
-                    }
-                );
-            });
-        </script>
-        <!-- //dropdown nav -->
-        <!-- smooth-scrolling-of-move-up -->
-        <script>
-            $(document).ready(function () {
-                /*
-                var defaults = {
-                    containerID: 'toTop', // fading element id
-                    containerHoverID: 'toTopHover', // fading element hover id
-                    scrollSpeed: 1200,
-                    easingType: 'linear' 
-                };
-                */
+    <!-- Stats -->
+    <section class="stats-band" aria-label="Our numbers">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <div class="stat"><i class="fas fa-taxi"></i><p class="stat-number" data-count="35" data-suffix="+">35+</p><p class="stat-label">Vehicles</p></div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat"><i class="fas fa-plane-arrival"></i><p class="stat-number" data-count="280" data-suffix="+">280+</p><p class="stat-label">Airport pickups &amp; drops</p></div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat"><i class="far fa-calendar-check"></i><p class="stat-number" data-count="<%= Seo.YearsOfService %>" data-suffix="+"><%= Seo.YearsOfService %>+</p><p class="stat-label">Years of service</p></div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat"><i class="far fa-smile"></i><p class="stat-number" data-count="2800" data-suffix="+">2,800+</p><p class="stat-label">Happy clients</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                $().UItoTop({
-                    easingType: 'easeOutQuart'
-                });
+    <!-- Why choose us -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <span class="eyebrow">Why Choose Us</span>
+                    <h2 class="section-title">Instant, Friendly Support <span>24/7</span> &ndash; Wherever You Are</h2>
+                    <p class="section-lead mb-4">
+                        We are a local Chittorgarh business, not a faceless app. You talk directly to the people who own the cars,
+                        so you always get a straight answer and a fair price.
+                    </p>
+                    <a class="btn-brand" href="#book"><i class="fas fa-taxi"></i>Book a Taxi</a>
+                </div>
+                <div class="col-lg-7 pl-lg-5">
+                    <div class="row">
+                        <div class="col-md-6 reveal">
+                            <div class="why-item"><span class="why-icon"><i class="fas fa-rupee-sign"></i></span><div><h3>Competitive Prices</h3><p>Clear per-km rates shared upfront. No surge pricing and no surprise charges at the end of the trip.</p></div></div>
+                        </div>
+                        <div class="col-md-6 reveal">
+                            <div class="why-item"><span class="why-icon"><i class="fas fa-shield-alt"></i></span><div><h3>Fast &amp; Safe</h3><p>Well-serviced vehicles, safe driving and GPS-ready drivers to get you there quickly and securely.</p></div></div>
+                        </div>
+                        <div class="col-md-6 reveal">
+                            <div class="why-item"><span class="why-icon"><i class="fas fa-id-card"></i></span><div><h3>Trained, Skilled Drivers</h3><p>Experienced, polite drivers who know local routes, highways and every corner of Chittorgarh Fort.</p></div></div>
+                        </div>
+                        <div class="col-md-6 reveal">
+                            <div class="why-item"><span class="why-icon"><i class="fas fa-female"></i></span><div><h3>Family &amp; Women Friendly</h3><p>Comfortable, respectful service trusted by families, solo women travellers and senior citizens.</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            });
-        </script>
-        <!-- //smooth-scrolling-of-move-up -->
-        <script src="js/bootstrap.js"></script>
-        <!-- js file -->
-        <script>
-            function openPopup() {
-                $("#myModal").modal('show');
-            }
-            function scrolltoPosition(id) {
-                $('html, body').animate({
-                    scrollTop: $("." + id).offset().top
-                }, 2000);
-            };
-        </script>
-    </form>
-</body>
-</html>
+    <!-- Popular routes -->
+    <section class="section bg-soft" id="routes">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Popular Routes</span>
+                <h2 class="section-title">Outstation Taxi <span>from Chittorgarh</span></h2>
+                <p class="section-lead">Approximate road distances and drive times for our most requested destinations.</p>
+            </div>
+            <div class="routes-table reveal">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr><th scope="col">Route</th><th scope="col">Distance</th><th scope="col">Drive time</th><th scope="col">Best for</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><a href="Chittorgarh-to-Udaipur-Taxi.aspx">Chittorgarh to Udaipur</a></td><td>~115 km</td><td>2 - 2.5 hrs</td><td>Lakes, palaces, airport</td></tr>
+                            <tr><td><a href="Udaipur-Airport-to-Chittorgarh-Taxi.aspx">Udaipur Airport to Chittorgarh</a></td><td>~90 km</td><td>1.5 - 2 hrs</td><td>Flight arrivals</td></tr>
+                            <tr><td><a href="Sanwariya-Seth-Temple-Taxi-from-Chittorgarh.aspx">Chittorgarh to Sanwariya Seth</a></td><td>~40 km</td><td>45 - 60 min</td><td>Temple darshan</td></tr>
+                            <tr><td><a href="Outstation-Taxi-from-Chittorgarh.aspx">Chittorgarh to Bhilwara</a></td><td>~60 km</td><td>1 - 1.5 hrs</td><td>Business trips</td></tr>
+                            <tr><td><a href="Outstation-Taxi-from-Chittorgarh.aspx">Chittorgarh to Ajmer / Pushkar</a></td><td>~190 km</td><td>3.5 - 4 hrs</td><td>Dargah, Pushkar lake</td></tr>
+                            <tr><td><a href="Outstation-Taxi-from-Chittorgarh.aspx">Chittorgarh to Jaipur</a></td><td>~310 km</td><td>5 - 6 hrs</td><td>Capital city, airport</td></tr>
+                            <tr><td><a href="Outstation-Taxi-from-Chittorgarh.aspx">Chittorgarh to Kota</a></td><td>~160 km</td><td>3 hrs</td><td>Coaching city, Chambal</td></tr>
+                            <tr><td><a href="Outstation-Taxi-from-Chittorgarh.aspx">Chittorgarh to Indore</a></td><td>~330 km</td><td>6 - 7 hrs</td><td>Madhya Pradesh trips</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="routes-note text-center">Distances are approximate and depend on the exact pickup point and route taken. Call us for an exact quote.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Testimonials</span>
+                <h2 class="section-title">What Our <span>Happy Customers</span> Say</h2>
+                <p class="section-lead">Over 2,500 travellers have trusted us with their journeys. Here is what a few of them said.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4 reveal">
+                    <figure class="testimonial-card">
+                        <i class="fas fa-quote-right quote-icon" aria-hidden="true"></i>
+                        <div class="stars" aria-label="Rated 5 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>Best driver, very good service and luxury vehicles at fair prices. Thank you, sir ji!</blockquote>
+                        <figcaption class="testimonial-person">
+                            <img src="images/t1.jpg" alt="Deepak J Choudhary" width="52" height="52" loading="lazy" />
+                            <div><strong>Deepak J Choudhary</strong><span>Jaipur</span></div>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 reveal">
+                    <figure class="testimonial-card">
+                        <i class="fas fa-quote-right quote-icon" aria-hidden="true"></i>
+                        <div class="stars" aria-label="Rated 5 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>Reliable and genuine service. Had a really nice experience &ndash; the best taxi service in Chittorgarh.</blockquote>
+                        <figcaption class="testimonial-person">
+                            <img src="images/t2.png" alt="Mukesh Chasta" width="52" height="52" loading="lazy" />
+                            <div><strong>Mukesh Chasta</strong><span>Chittorgarh</span></div>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 reveal">
+                    <figure class="testimonial-card">
+                        <i class="fas fa-quote-right quote-icon" aria-hidden="true"></i>
+                        <div class="stars" aria-label="Rated 5 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>Best customer service, good job! If anyone visits Chittorgarh, they must try this taxi service.</blockquote>
+                        <figcaption class="testimonial-person">
+                            <img src="images/t3.png" alt="Tarun Gawer" width="52" height="52" loading="lazy" />
+                            <div><strong>Tarun Gawer</strong><span>Jaipur</span></div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section bg-soft">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Our Team</span>
+                <h2 class="section-title">The People <span>Behind Your Ride</span></h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-6 col-lg-3 mb-4 reveal">
+                    <div class="team-card">
+                        <img src="images/team4.jpg" alt="Mahaveer Vyas, Accounts Manager at Chittorgarh Taxi Services" width="500" height="530" loading="lazy" />
+                        <div class="team-body"><h3>Mahaveer Vyas</h3><span>Accounts Manager</span></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-4 reveal">
+                    <div class="team-card">
+                        <img src="images/team1.jpg" alt="Himanshu, Marketing Head at Chittorgarh Taxi Services" width="500" height="530" loading="lazy" />
+                        <div class="team-body"><h3>Himanshu</h3><span>Marketing Head</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="section" id="blog">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Travel Blog</span>
+                <h2 class="section-title">Chittorgarh <span>Travel Guides</span> &amp; Tips</h2>
+                <p class="section-lead">Helpful guides to plan your sightseeing, temple visits and road trips from Chittorgarh.</p>
+            </div>
+            <uc:BlogList ID="latestPosts" runat="server" Count="3" />
+            <div class="text-center mt-2">
+                <a class="btn-dark-ink" href="Blog.aspx">View All Articles <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section bg-soft" id="faq">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">FAQs</span>
+                <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+                <p class="section-lead">Quick answers about booking a taxi in Chittorgarh.</p>
+            </div>
+            <div class="faq-list">
+                <asp:Repeater ID="rptFaq" runat="server">
+                    <ItemTemplate>
+                        <details class="faq-item"<%# Container.ItemIndex == 0 ? " open" : "" %>>
+                            <summary><%#: Eval("Question") %></summary>
+                            <div class="faq-answer"><p><%#: Eval("Answer") %></p></div>
+                        </details>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking success modal -->
+    <div id="bookingModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="bookingModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-success">
+                    <span class="success-icon"><i class="fas fa-check"></i></span>
+                    <h2 id="bookingModalTitle">Enquiry sent successfully!</h2>
+                    <p><asp:Literal ID="litMessage" runat="server" Text="Thank you. We will contact you back very soon." /></p>
+                    <button type="button" class="btn-brand" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</asp:Content>

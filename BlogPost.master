@@ -1,0 +1,110 @@
+<%@ Master Language="C#" MasterPageFile="~/Master.master" AutoEventWireup="true" CodeFile="BlogPost.master.cs" Inherits="BlogPostMaster" %>
+<%@ Register Src="~/Controls/BlogList.ascx" TagPrefix="uc" TagName="BlogList" %>
+
+<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <section class="page-hero">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="crumbs">
+                    <li><a href="./">Home</a></li>
+                    <li><a href="Blog.aspx">Blog</a></li>
+                    <li aria-current="page"><%: Post.Category %></li>
+                </ol>
+            </nav>
+            <span class="badge-cat"><%: Post.Category %></span>
+            <h1><%: Post.Title %></h1>
+            <div class="article-meta">
+                <span><i class="far fa-calendar-alt"></i>Published <time datetime="<%: Post.Published.ToString("yyyy-MM-dd") %>"><%: Post.Published.ToString("dd MMMM yyyy") %></time></span>
+                <span><i class="far fa-clock"></i><%: Post.ReadMinutes %> min read</span>
+                <span><i class="far fa-user"></i>Chittorgarh Taxi Services</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <article class="article-body">
+                        <asp:ContentPlaceHolder ID="ArticleBody" runat="server">
+                        </asp:ContentPlaceHolder>
+
+                        <div class="article-cta">
+                            <div>
+                                <h2>Book your taxi in Chittorgarh</h2>
+                                <p>Clean cars, local drivers and honest fares. Available 24 x 7.</p>
+                            </div>
+                            <div class="cta-actions">
+                                <a class="btn-brand" href="tel:<%: Seo.PhoneLink %>"><i class="fas fa-phone-alt"></i>Call Now</a>
+                                <a class="btn-whatsapp" href="<%: Seo.WhatsAppLink("Hi, I read your article \"" + Post.Title + "\" and want to book a taxi.") %>" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <div class="share-row">
+                            <span>Share this article:</span>
+                            <a class="share-btn" href="https://wa.me/?text=<%: ShareText %>" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=<%: ShareUrl %>" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a class="share-btn" href="https://twitter.com/intent/tweet?url=<%: ShareUrl %>&amp;text=<%: Uri.EscapeDataString(Post.Title) %>" target="_blank" rel="noopener" aria-label="Share on X (Twitter)"><i class="fab fa-twitter"></i></a>
+                            <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=<%: ShareUrl %>" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="col-lg-4">
+                    <div class="sidebar">
+                        <div class="widget widget-book">
+                            <p class="widget-title h5">Need a Taxi?</p>
+                            <p>Call or WhatsApp us for instant booking and a free fare quote.</p>
+                            <a class="big-phone" href="tel:<%: Seo.PhoneLink %>"><%: Seo.Phone %></a>
+                            <a class="btn-brand" href="tel:<%: Seo.PhoneLink %>"><i class="fas fa-phone-alt"></i>Call Now</a>
+                            <a class="btn-whatsapp" href="<%: Seo.WhatsAppLink("Hi, I want to book a taxi from Chittorgarh.") %>" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>WhatsApp Us</a>
+                        </div>
+
+                        <div class="widget">
+                            <p class="widget-title h5">Recent Articles</p>
+                            <ul class="recent-list">
+                                <asp:Repeater ID="rptRecent" runat="server" ItemType="BlogPost">
+                                    <ItemTemplate>
+                                        <li>
+                                            <span class="recent-thumb <%#: Item.Theme %>" aria-hidden="true"><i class="<%#: Item.Icon %>"></i></span>
+                                            <div>
+                                                <a href="<%#: Item.Url %>"><%#: Item.Title %></a>
+                                                <small><%# Item.Published.ToString("dd MMM yyyy") %></small>
+                                            </div>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
+                        </div>
+
+                        <div class="widget">
+                            <p class="widget-title h5">Our Services</p>
+                            <ul class="link-list">
+                                <li><a href="./#services">Local sightseeing taxi <i class="fas fa-angle-right"></i></a></li>
+                                <li><a href="Chittorgarh-to-Udaipur-Taxi.aspx">Chittorgarh to Udaipur taxi <i class="fas fa-angle-right"></i></a></li>
+                                <li><a href="Udaipur-Airport-to-Chittorgarh-Taxi.aspx">Udaipur airport transfer <i class="fas fa-angle-right"></i></a></li>
+                                <li><a href="Outstation-Taxi-from-Chittorgarh.aspx">Outstation taxi <i class="fas fa-angle-right"></i></a></li>
+                                <li><a href="./#fleet">Fleet &amp; fares <i class="fas fa-angle-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-soft">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Keep Reading</span>
+                <h2 class="section-title">Related <span>Articles</span></h2>
+            </div>
+            <uc:BlogList ID="relatedPosts" runat="server" Count="3" />
+        </div>
+    </section>
+</asp:Content>

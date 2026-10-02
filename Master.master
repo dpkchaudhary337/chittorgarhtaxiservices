@@ -1,241 +1,162 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Master.master.cs" Inherits="Master" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head runat="server">
-    <title>Chittorgarh Taxi Services | Taxi in Chittorgarh | Taxi services in Chittorgarh | Taxi Hire Chittorgarh</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <meta name="keywords" content="Realtie a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="css/contact.css" type="text/css" media="all" />
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link href="css/fontawesome-all.css" rel="stylesheet" />
-    <link href="//fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Chittorgarh Taxi Services</title>
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Chittorgarh Taxi Services" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="geo.region" content="IN-RJ" />
+    <meta name="geo.placename" content="Chittorgarh" />
+    <meta name="geo.position" content="24.890419;74.626333" />
+    <meta name="ICBM" content="24.890419, 74.626333" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/theme.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <a class="skip-link" href="#main">Skip to content</a>
 
-        <!--/banner-w3layouts-sec-->
-        <div class="banner-w3layouts two">
-            <header>
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="Index.aspx">Chittorgarh Taxi</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon">
-                            <i class="fas fa-bars"></i>
-                        </span>
+        <div class="topbar d-none d-md-block">
+            <div class="container">
+                <ul class="topbar-list">
+                    <li><i class="fas fa-map-marker-alt"></i>Meera Nagar, Chittorgarh, Rajasthan</li>
+                    <li><i class="far fa-clock"></i>Open 24 x 7, all days</li>
+                </ul>
+                <ul class="topbar-list">
+                    <li><a href="mailto:<%: Seo.Email %>"><i class="far fa-envelope"></i><%: Seo.Email %></a></li>
+                    <li><a href="tel:<%: Seo.PhoneLink %>"><i class="fas fa-phone-alt"></i><%: Seo.Phone %></a></li>
+                </ul>
+            </div>
+        </div>
 
-                    </button>
+        <header class="site-header" id="siteHeader">
+            <nav class="navbar navbar-expand-lg container" aria-label="Main navigation">
+                <a class="brand" href="./" aria-label="Chittorgarh Taxi Services - Home">
+                    <span class="brand-icon"><i class="fas fa-taxi" aria-hidden="true"></i></span>
+                    <span class="brand-text">Chittorgarh<strong>Taxi</strong><small>Services since 2018</small></span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ml-auto align-items-lg-center">
+                        <li class="nav-item<%= Active("Index") %>"><a class="nav-link" href="./">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./#fleet">Fleet &amp; Fares</a></li>
+                        <li class="nav-item<%= Active("Blog") %>"><a class="nav-link" href="Blog.aspx">Blog</a></li>
+                        <li class="nav-item<%= Active("Contact") %>"><a class="nav-link" href="Contact.aspx">Contact</a></li>
+                    </ul>
+                    <a class="btn-brand nav-cta" href="tel:<%: Seo.PhoneLink %>"><i class="fas fa-phone-alt" aria-hidden="true"></i>Call Now</a>
+                </div>
+            </nav>
+        </header>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="Index.aspx">Home
-								<span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ml-xl-2">
-                                <a class="nav-link" href="javacript:void(0);" onclick="scrolltoPosition('about')">About</a>
-                            </li>
-                            <li class="nav-item ml-xl-2">
-                                <a class="nav-link" href="javacript:void(0);" onclick="scrolltoPosition('testimonials')">Testimonials</a>
-                            </li>
-                            <li class="nav-item ml-xl-2">
-                                <a class="nav-link" href="javacript:void(0);" onclick="scrolltoPosition('service')">Services</a>
-                            </li>
-                             <li class="nav-item ml-xl-2">
-                                <a class="nav-link" href="Best-Taxi-Service-Chittorgarh.aspx">Best Taxi Service</a>
-                            </li>
-                            <li class="nav-item ml-xl-2">
-                                <a class="nav-link" href="Contact.aspx">Contact</a>
-                            </li>
+        <main id="main">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+
+        <section class="cta-band<%= IsPage("Index") ? " bg-soft pt-0" : "" %>" aria-label="Book a taxi">
+            <div class="container">
+                <div class="cta-inner">
+                    <div>
+                        <h2>Need a taxi in Chittorgarh right now?</h2>
+                        <p>Local, outstation, airport and temple trips &middot; Available 24 x 7 &middot; Transparent fares</p>
+                    </div>
+                    <div class="cta-actions">
+                        <a class="btn-dark-ink" href="tel:<%: Seo.PhoneLink %>"><i class="fas fa-phone-alt" aria-hidden="true"></i><%: Seo.Phone %></a>
+                        <a class="btn-whatsapp" href="<%: Seo.WhatsAppLink("Hi, I want to book a taxi from Chittorgarh.") %>" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i>WhatsApp Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <a class="brand" href="./">
+                            <span class="brand-icon"><i class="fas fa-taxi" aria-hidden="true"></i></span>
+                            <span class="brand-text">Chittorgarh<strong>Taxi</strong><small>Services since 2018</small></span>
+                        </a>
+                        <p>
+                            Chittorgarh Taxi Services is a trusted local cab provider for Chittorgarh Fort sightseeing,
+                            outstation trips, Udaipur airport transfers and temple darshan, with clean cars and experienced drivers.
+                        </p>
+                        <div class="footer-social">
+                            <a href="<%: Seo.WhatsAppLink("Hi, I want to book a taxi.") %>" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="tel:<%: Seo.PhoneLink %>" aria-label="Call us"><i class="fas fa-phone-alt"></i></a>
+                            <a href="mailto:<%: Seo.Email %>" aria-label="Email us"><i class="far fa-envelope"></i></a>
+                            <a href="<%: Seo.MapUrl %>" target="_blank" rel="noopener" aria-label="Find us on Google Maps"><i class="fas fa-map-marker-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-6 mb-5">
+                        <p class="footer-title">Quick Links</p>
+                        <ul class="footer-links">
+                            <li><a href="./">Home</a></li>
+                            <li><a href="./#about">About Us</a></li>
+                            <li><a href="./#fleet">Fleet &amp; Fares</a></li>
+                            <li><a href="./#faq">FAQs</a></li>
+                            <li><a href="Blog.aspx">Travel Blog</a></li>
+                            <li><a href="Contact.aspx">Contact Us</a></li>
                         </ul>
                     </div>
-                </nav>
-            </header>
-        </div>
-        <!--/main-->
-
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-        <!--footer-->
-        <footer>
-            <!-- footer -->
-            <div class="footer-cpy p-lg-4 p-md-3 p-3 container-fluid">
-                <div class="row">
-                    <div class="col-lg-7 copyrightbottom text-left">
-                        <h3>
-                            <a class="navbar-brand" href="Index.aspx">Chittorgarh Taxi</a>
-                        </h3>
-                        <p>
-                            © 2018-2025 Chittorgarh Taxi Services. All Rights Reserved | Design by
-						<a href="https://awarepedia.com/">Awarepedia India</a>
-                        </p>
-
+                    <div class="col-lg-3 col-md-6 col-6 mb-5">
+                        <p class="footer-title">Popular Trips</p>
+                        <ul class="footer-links">
+                            <li><a href="Chittorgarh-Fort-Travel-Guide.aspx">Chittorgarh Fort Tour</a></li>
+                            <li><a href="Chittorgarh-to-Udaipur-Taxi.aspx">Chittorgarh to Udaipur Taxi</a></li>
+                            <li><a href="Udaipur-Airport-to-Chittorgarh-Taxi.aspx">Udaipur Airport Transfer</a></li>
+                            <li><a href="Sanwariya-Seth-Temple-Taxi-from-Chittorgarh.aspx">Sanwariya Seth Darshan</a></li>
+                            <li><a href="Outstation-Taxi-from-Chittorgarh.aspx">Outstation Taxi</a></li>
+                        </ul>
                     </div>
-                    <div class="col-lg-5 copyrighttop mt-3 text-right">
-                        <ul>
-                            <li class="mx-3">
-                                <a class="facebook" href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                    <span>Facebook</span>
-                                </a>
-                            </li>
-                             <li class="mx-3">
-                                <a class="facebook" href="#">
-                                    <i class="fab fa-twitter"></i>
-                                    <span>Twitter</span>
-                                </a>
-                            </li>
-                             <li>
-                                <a class="facebook" href="#">
-                                    <i class="fab fa-google"></i>
-                                    <span>Google Map</span>
-                                </a>
-                            </li>
+                    <div class="col-lg-3 col-md-6 mb-5">
+                        <p class="footer-title">Contact Us</p>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span><%: Seo.StreetAddress %>, <%: Seo.City %>, <%: Seo.Region %> <%: Seo.PostalCode %></span></li>
+                            <li><i class="fas fa-phone-alt" aria-hidden="true"></i><span><a href="tel:<%: Seo.PhoneLink %>"><%: Seo.Phone %></a><br /><a href="tel:<%: Seo.AltPhoneLink %>"><%: Seo.AltPhone %></a></span></li>
+                            <li><i class="far fa-envelope" aria-hidden="true"></i><a href="mailto:<%: Seo.Email %>"><%: Seo.Email %></a></li>
+                            <li><i class="far fa-clock" aria-hidden="true"></i><span>Open 24 hours, 7 days a week</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p>&copy; 2018-<%= DateTime.Now.Year %> Chittorgarh Taxi Services. All rights reserved.</p>
+                    <p class="footer-credit">Crafted with <i class="fas fa-heart" aria-hidden="true"></i><span class="sr-only">love</span> by <a href="http://angadsoftware.com/" target="_blank" rel="noopener" title="Angad Software - Website and App Development">Angad Software</a></p>
+                </div>
+            </div>
         </footer>
-        <!---->
-        <!-- /.footer -->
+
+        <div class="float-actions">
+            <a href="#" id="toTop" class="float-btn float-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+            <a href="tel:<%: Seo.PhoneLink %>" class="float-btn float-call" aria-label="Call Chittorgarh Taxi Services"><i class="fas fa-phone-alt"></i></a>
+            <a href="<%: Seo.WhatsAppLink("Hi, I want to book a taxi from Chittorgarh.") %>" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <script src="js/jquery-2.2.3.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/site.js"></script>
+        <asp:ContentPlaceHolder ID="scripts" runat="server">
+        </asp:ContentPlaceHolder>
     </form>
-    <!-- /.footer -->
-    <script src="js/jquery-2.2.3.min.js"></script>
-    <!-- carousel -->
-    <script src="js/owl.carousel.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.owl-carousel').owlCarousel({
-                loop: true,
-                margin: 10,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1,
-                        nav: true
-                    },
-                    600: {
-                        items: 2,
-                        nav: false
-                    },
-                    900: {
-                        items: 3,
-                        nav: false
-                    },
-                    1000: {
-                        items: 4,
-                        nav: true,
-                        loop: false,
-                        margin: 20
-                    }
-                }
-            })
-        })
-    </script>
-    <!-- //carousel -->
-    <!-- stats -->
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.countup.js"></script>
-    <script>
-        $('.counter').countUp();
-
-        function scrolltoPosition(id) {
-
-            window.location.href = "index.aspx";
-
-            // Wait for the new page to load and then scroll to the div
-            $(window).on('load', function () {
-                $('html, body').animate({
-                    scrollTop: $("." + id).offset().top
-                }, 2000);
-            });
-        };
-
-
-    </script>
-    <!-- //stats -->
-    <!-- flexSlider -->
-    <script defer src="js/jquery.flexslider.js"></script>
-    <script>
-        $(window).load(function () {
-            $('.flexslider').flexslider({
-                animation: "slide",
-                start: function (slider) {
-                    $('body').removeClass('loading');
-                }
-            });
-        });
-    </script>
-    <!-- //flexSlider -->
-    <!-- start-smooth-scrolling -->
-    <script src="js/move-top.js"></script>
-    <script src="js/easing.js"></script>
-    <script>
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
-                event.preventDefault();
-
-                $('html,body').animate({
-                    scrollTop: $(this.hash).offset().top
-                }, 1000);
-            });
-        });
-    </script>
-    <!-- //end-smooth-scrolling -->
-    <!-- dropdown nav -->
-    <script>
-        $(document).ready(function () {
-            $(".dropdown").hover(
-                function () {
-                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-                    $(this).toggleClass('open');
-                },
-                function () {
-                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-                    $(this).toggleClass('open');
-                }
-            );
-        });
-    </script>
-    <!-- //dropdown nav -->
-    <!-- smooth-scrolling-of-move-up -->
-    <script>
-        $(document).ready(function () {
-            /*
-			var defaults = {
-			    containerID: 'toTop', // fading element id
-			    containerHoverID: 'toTopHover', // fading element hover id
-			    scrollSpeed: 1200,
-			    easingType: 'linear' 
-			};
-			*/
-
-            $().UItoTop({
-                easingType: 'easeOutQuart'
-            });
-
-        });
-    </script>
-    <!-- //smooth-scrolling-of-move-up -->
-    <script src="js/bootstrap.js"></script>
-    <!-- js file -->
 </body>
 </html>

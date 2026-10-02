@@ -1,26 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1000
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Chittorgarh Taxi Services", ".", "{EA546946-8E4D-40CF-9041-4446698792B4}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_51208"
-		Debug.AspNetCompiler.PhysicalPath = "D:\Projects\Chittorgarh Taxi Services\"
+		Debug.AspNetCompiler.PhysicalPath = "..\Chittorgarh Taxi Services\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51208\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_51208"
-		Release.AspNetCompiler.PhysicalPath = "D:\Projects\Chittorgarh Taxi Services\"
+		Release.AspNetCompiler.PhysicalPath = "..\Chittorgarh Taxi Services\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51208\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "51208"
+		SlnRelativePath = "..\Chittorgarh Taxi Services\"
 	EndProjectSection
 EndProject
 Global
