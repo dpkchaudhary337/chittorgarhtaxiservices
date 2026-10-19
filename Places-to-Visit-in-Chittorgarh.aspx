@@ -117,7 +117,7 @@
         <table>
             <thead><tr><th>Plan</th><th>What you cover</th><th>Recommended car</th></tr></thead>
             <tbody>
-                <tr><td>Half day</td><td>Chittorgarh Fort highlights (Vijay Stambh, Padmini Palace, Meera Temple, Gaumukh Kund)</td><td>Swift / Indigo</td></tr>
+                <tr><td>Half day</td><td>Chittorgarh Fort highlights (Vijay Stambh, Padmini Palace, Meera Temple, Gaumukh Kund)</td><td>Swift Dzire</td></tr>
                 <tr><td>Full day</td><td>Complete fort tour + museum + light and sound show</td><td>Etios / Ertiga</td></tr>
                 <tr><td>2 days</td><td>Day 1: fort. Day 2: Sanwariya Seth Temple + Bassi Sanctuary</td><td>Ertiga / Innova</td></tr>
                 <tr><td>Day trip</td><td>Menal Waterfall and temples (best July to September)</td><td>Innova / Tavera</td></tr>

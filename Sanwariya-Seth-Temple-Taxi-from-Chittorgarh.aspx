@@ -54,11 +54,12 @@
         <table>
             <thead><tr><th>Car</th><th>Seats</th><th>Rate per km</th><th>Approx. round-trip fare*</th></tr></thead>
             <tbody>
-                <tr><td>Swift / Indigo</td><td>4</td><td>&#8377;9&ndash;10</td><td>&#8377;810 &ndash; &#8377;900</td></tr>
-                <tr><td>Etios / Ertiga</td><td>4&ndash;6</td><td>&#8377;11&ndash;12</td><td>&#8377;990 &ndash; &#8377;1,080</td></tr>
-                <tr><td>Tavera</td><td>9</td><td>&#8377;12&ndash;13</td><td>&#8377;1,080 &ndash; &#8377;1,170</td></tr>
-                <tr><td>Innova</td><td>7</td><td>&#8377;14&ndash;15</td><td>&#8377;1,260 &ndash; &#8377;1,350</td></tr>
-                <tr><td>Cruiser</td><td>12</td><td>&#8377;15&ndash;16</td><td>&#8377;1,350 &ndash; &#8377;1,440</td></tr>
+                <tr><td>Swift Dzire</td><td>4</td><td>&#8377;10&ndash;11</td><td>&#8377;900 &ndash; &#8377;990</td></tr>
+                <tr><td>Etios</td><td>4</td><td>&#8377;11&ndash;12</td><td>&#8377;990 &ndash; &#8377;1,080</td></tr>
+                <tr><td>Ertiga</td><td>6</td><td>&#8377;12&ndash;13</td><td>&#8377;1,080 &ndash; &#8377;1,170</td></tr>
+                <tr><td>Tavera</td><td>9</td><td>&#8377;13&ndash;14</td><td>&#8377;1,170 &ndash; &#8377;1,260</td></tr>
+                <tr><td>Innova</td><td>7</td><td>&#8377;15&ndash;16</td><td>&#8377;1,350 &ndash; &#8377;1,440</td></tr>
+                <tr><td>Cruiser</td><td>12</td><td>&#8377;17&ndash;18</td><td>&#8377;1,530 &ndash; &#8377;1,620</td></tr>
             </tbody>
         </table>
     </div>

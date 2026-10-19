@@ -39,12 +39,12 @@
         <table>
             <thead><tr><th>Car</th><th>Seats</th><th>Rate per km</th><th>Ideal for</th></tr></thead>
             <tbody>
-                <tr><td>Swift / Indigo</td><td>4</td><td>&#8377;9&ndash;10</td><td>Couples, small families, business trips</td></tr>
+                <tr><td>Swift Dzire</td><td>4</td><td>&#8377;10&ndash;11</td><td>Couples, small families, business trips</td></tr>
                 <tr><td>Etios</td><td>4</td><td>&#8377;11&ndash;12</td><td>Extra boot space and comfort</td></tr>
-                <tr><td>Ertiga</td><td>6</td><td>&#8377;11&ndash;12</td><td>Families of 5&ndash;6</td></tr>
-                <tr><td>Tavera</td><td>9</td><td>&#8377;12&ndash;13</td><td>Larger families and groups</td></tr>
-                <tr><td>Innova</td><td>7</td><td>&#8377;14&ndash;15</td><td>Premium comfort on long drives</td></tr>
-                <tr><td>Cruiser</td><td>12</td><td>&#8377;15&ndash;16</td><td>Group tours, weddings, pilgrimages</td></tr>
+                <tr><td>Ertiga</td><td>6</td><td>&#8377;12&ndash;13</td><td>Families of 5&ndash;6</td></tr>
+                <tr><td>Tavera</td><td>9</td><td>&#8377;13&ndash;14</td><td>Larger families and groups</td></tr>
+                <tr><td>Innova</td><td>7</td><td>&#8377;15&ndash;16</td><td>Premium comfort on long drives</td></tr>
+                <tr><td>Cruiser</td><td>12</td><td>&#8377;17&ndash;18</td><td>Group tours, weddings, pilgrimages</td></tr>
             </tbody>
         </table>
     </div>
@@ -59,8 +59,8 @@
     <div class="callout">
         <p class="callout-title"><i class="fas fa-calculator text-brand"></i>Example</p>
         <p>
-            A same-day round trip from Chittorgarh to Kota is roughly 320 km. In a Swift or Indigo at &#8377;9&ndash;10 per km,
-            that comes to about &#8377;2,880 &ndash; &#8377;3,200, plus toll and parking.
+            A same-day round trip from Chittorgarh to Kota is roughly 320 km. In a Swift Dzire at &#8377;10&ndash;11 per km,
+            that comes to about &#8377;3,200 &ndash; &#8377;3,520, plus toll and parking.
         </p>
     </div>
 

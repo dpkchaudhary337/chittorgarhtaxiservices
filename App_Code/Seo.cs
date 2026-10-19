@@ -11,8 +11,8 @@ public static class Seo
     public const string SiteName = "Chittorgarh Taxi Services";
     public const string Phone = "+91 96022 68863";
     public const string PhoneLink = "+919602268863";
-    public const string AltPhone = "+91 75684 20820";
-    public const string AltPhoneLink = "+917568420820";
+    public const string AltPhone = "+91 96025 01020";
+    public const string AltPhoneLink = "+919602501020";
     public const string WhatsAppNumber = "919602268863";
     public const string Email = "chittorgarhtaxiservices@gmail.com";
     public const string AltEmail = "pvyas456@gmail.com";
@@ -127,7 +127,7 @@ public static class Seo
             "image", AbsoluteUrl(DefaultImage),
             "telephone", PhoneLink,
             "email", Email,
-            "priceRange", "Rs. 9 - 16 per km",
+            "priceRange", "Rs. 10 - 18 per km",
             "foundingDate", FoundedYear.ToString(),
             "address", Obj(
                 "@type", "PostalAddress",

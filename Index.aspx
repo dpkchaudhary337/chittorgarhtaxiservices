@@ -19,7 +19,7 @@
                         Udaipur airport transfers, Sanwariya Seth darshan and outstation trips across Rajasthan.
                     </p>
                     <ul class="hero-points">
-                        <li><i class="fas fa-check-circle"></i>Fares from &#8377;9/km</li>
+                        <li><i class="fas fa-check-circle"></i>Fares from &#8377;10/km</li>
                         <li><i class="fas fa-check-circle"></i>No hidden charges</li>
                         <li><i class="fas fa-check-circle"></i>Airport &amp; railway pickup</li>
                         <li><i class="fas fa-check-circle"></i>One-way &amp; round trips</li>
